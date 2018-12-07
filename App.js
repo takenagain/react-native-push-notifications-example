@@ -8,6 +8,12 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
+import Amplify from 'aws-amplify';
+import PushNotification from '@aws-amplify/pushnotification';
+import aws_exports from './aws-exports';
+
+Amplify.configure(aws_exports);
+// PushNotification.configure(aws_exports);
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -18,13 +24,27 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+
+    componentDidMount() {
+        PushNotification.onNotification((notification) => {
+            console.log('in app notification', notification);
+            // required on iOS only (see fetchCompletionHandler docs: https://facebook.github.io/react-native/docs/pushnotificationios.html)
+            notification.finish(PushNotificationIOS.FetchResult.NoData);
+        });
+      
+        // gets the registration token
+        PushNotification.onRegister((token) => {
+            console.log('token', token);
+        });
+    }
+
     render() {
         return (
-        <View style={styles.container}>
-            <Text style={styles.welcome}>Welcome to React Native!</Text>
-            <Text style={styles.instructions}>To get started, edit App.js</Text>
-            <Text style={styles.instructions}>{instructions}</Text>
-        </View>
+            <View style={styles.container}>
+                <Text style={styles.welcome}>Welcome to React Native!</Text>
+                <Text style={styles.instructions}>To get started, edit App.js</Text>
+                <Text style={styles.instructions}>{instructions}</Text>
+            </View>
         );
     }
 }

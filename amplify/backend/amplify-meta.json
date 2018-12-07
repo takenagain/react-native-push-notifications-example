@@ -1,0 +1,36 @@
+{
+	"providers": {
+		"awscloudformation": {
+			"AuthRoleName": "sjoe-20181207095504-authRole",
+			"UnauthRoleArn": "arn:aws:iam::284319955275:role/sjoe-20181207095504-unauthRole",
+			"AuthRoleArn": "arn:aws:iam::284319955275:role/sjoe-20181207095504-authRole",
+			"Region": "us-east-1",
+			"DeploymentBucketName": "sjoe-20181207095504-deployment",
+			"UnauthRoleName": "sjoe-20181207095504-unauthRole",
+			"StackName": "sjoe-20181207095504",
+			"StackId": "arn:aws:cloudformation:us-east-1:284319955275:stack/sjoe-20181207095504/69316a30-f9f5-11e8-bbfb-50d501eed2b3"
+		}
+	},
+	"notifications": {
+		"sjoe_MobileHub": {
+			"service": "Pinpoint",
+			"output": {
+				"Name": "sjoe_MobileHub",
+				"Id": "5c8d9655217d460680976d8f8fd499ed",
+				"Region": "us-east-1",
+				"FCM": {
+					"ApplicationId": "5c8d9655217d460680976d8f8fd499ed",
+					"CreationDate": "2018-12-07T07:57:00.285Z",
+					"Enabled": true,
+					"HasCredential": true,
+					"Id": "gcm",
+					"IsArchived": false,
+					"LastModifiedDate": "2018-12-07T07:57:00.285Z",
+					"Platform": "GCM",
+					"Version": 1
+				}
+			},
+			"lastPushTimeStamp": "2018-12-07T07:56:11.897Z"
+		}
+	}
+}
