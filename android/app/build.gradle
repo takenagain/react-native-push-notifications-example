@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-push-notification')
     compile project(':amazon-cognito-identity-js')
     compile project(':@aws-amplify_pushnotification')
     implementation fileTree(dir: "libs", include: ["*.jar"])

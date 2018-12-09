@@ -27,7 +27,8 @@ export default class App extends Component<Props> {
 
     componentDidMount() {
         PushNotification.onNotification((notification) => {
-            console.log('in app notification', notification);
+            console.log('notification', notification);
+            
             // required on iOS only (see fetchCompletionHandler docs: https://facebook.github.io/react-native/docs/pushnotificationios.html)
             notification.finish(PushNotificationIOS.FetchResult.NoData);
         });

@@ -10,12 +10,13 @@
     "@aws-amplify/pushnotification": "^1.0.19",
     "aws-amplify": "^1.1.12",
     "react": "16.6.1",
-    "react-native": "0.57.7"
+    "react-native": "0.57.7",
+    "react-native-push-notification": "git://github.com/nodexpertsdev/react-native-push-notification.git#bigpicture-feature"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",
-    "jest": "23.6.0",
     "eslint": "^5.9.0",
+    "jest": "23.6.0",
     "metro-react-native-babel-preset": "0.50.0",
     "react-test-renderer": "16.6.1"
   },
