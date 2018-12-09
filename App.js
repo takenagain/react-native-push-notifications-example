@@ -13,29 +13,22 @@ import PushNotification from '@aws-amplify/pushnotification';
 import aws_exports from './aws-exports';
 
 Amplify.configure(aws_exports);
-// PushNotification.configure(aws_exports);
-
-const instructions = Platform.select({
-    ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-    android:
-        'Double tap R on your keyboard to reload,\n' +
-        'Shake or press menu button for dev menu',
-});
+PushNotification.configure(aws_exports);
 
 type Props = {};
 export default class App extends Component<Props> {
 
     componentDidMount() {
         PushNotification.onNotification((notification) => {
-            console.log('notification', notification);
-            
+            console.log('notification: ', notification);
+
             // required on iOS only (see fetchCompletionHandler docs: https://facebook.github.io/react-native/docs/pushnotificationios.html)
-            notification.finish(PushNotificationIOS.FetchResult.NoData);
+            // notification.finish(PushNotificationIOS.FetchResult.NoData);
         });
       
         // gets the registration token
         PushNotification.onRegister((token) => {
-            console.log('token', token);
+            console.log('token: ', token);
         });
     }
 
@@ -44,7 +37,6 @@ export default class App extends Component<Props> {
             <View style={styles.container}>
                 <Text style={styles.welcome}>Welcome to React Native!</Text>
                 <Text style={styles.instructions}>To get started, edit App.js</Text>
-                <Text style={styles.instructions}>{instructions}</Text>
             </View>
         );
     }

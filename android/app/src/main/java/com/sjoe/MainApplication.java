@@ -3,7 +3,6 @@ package com.sjoe;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.dieam.reactnativepushnotification.ReactNativePushNotificationPackage;
 import com.amazonaws.RNAWSCognitoPackage;
 import com.amazonaws.amplify.pushnotification.RNPushNotificationPackage;
 import com.facebook.react.ReactNativeHost;
@@ -26,7 +25,6 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new ReactNativePushNotificationPackage(),
             new RNAWSCognitoPackage(),
             new RNPushNotificationPackage()
       );
